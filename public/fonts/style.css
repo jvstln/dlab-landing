@@ -1,0 +1,201 @@
+/* HarmonyOS Sans - Consolidated font-face declarations */
+
+@font-face {
+  font-family: "HarmonyOS Sans";
+  font-style: normal;
+  font-weight: 100;
+  src:
+    local("HarmonyOS Sans Thin"),
+    url("/fonts/HarmonyOS_Sans_Thin.woff") format("woff");
+}
+
+@font-face {
+  font-family: "HarmonyOS Sans";
+  font-style: italic;
+  font-weight: 100;
+  src:
+    local("HarmonyOS Sans Thin Italic"),
+    url("/fonts/HarmonyOS_Sans_Thin_Italic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "HarmonyOS Sans";
+  font-style: normal;
+  font-weight: 300;
+  src:
+    local("HarmonyOS Sans Light"),
+    url("/fonts/HarmonyOS_Sans_Light.woff") format("woff");
+}
+
+@font-face {
+  font-family: "HarmonyOS Sans";
+  font-style: italic;
+  font-weight: 300;
+  src:
+    local("HarmonyOS Sans Light Italic"),
+    url("/fonts/HarmonyOS_Sans_Light_Italic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "HarmonyOS Sans";
+  font-style: normal;
+  font-weight: 400;
+  src:
+    local("HarmonyOS Sans Regular"),
+    url("/fonts/HarmonyOS_Sans_Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "HarmonyOS Sans";
+  font-style: italic;
+  font-weight: 400;
+  src:
+    local("HarmonyOS Sans Italic"),
+    url("/fonts/HarmonyOS_Sans_Regular_Italic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "HarmonyOS Sans";
+  font-style: normal;
+  font-weight: 500;
+  src:
+    local("HarmonyOS Sans Medium"),
+    url("/fonts/HarmonyOS_Sans_Medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "HarmonyOS Sans";
+  font-style: italic;
+  font-weight: 500;
+  src:
+    local("HarmonyOS Sans Medium Italic"),
+    url("/fonts/HarmonyOS_Sans_Medium_Italic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "HarmonyOS Sans";
+  font-style: normal;
+  font-weight: 700;
+  src:
+    local("HarmonyOS Sans Bold"),
+    url("/fonts/HarmonyOS_Sans_Bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "HarmonyOS Sans";
+  font-style: italic;
+  font-weight: 700;
+  src:
+    local("HarmonyOS Sans Bold Italic"),
+    url("/fonts/HarmonyOS_Sans_Bold_Italic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "HarmonyOS Sans";
+  font-style: normal;
+  font-weight: 900;
+  src:
+    local("HarmonyOS Sans Black"),
+    url("/fonts/HarmonyOS_Sans_Black.woff") format("woff");
+}
+
+@font-face {
+  font-family: "HarmonyOS Sans";
+  font-style: italic;
+  font-weight: 900;
+  src:
+    local("HarmonyOS Sans Black Italic"),
+    url("/fonts/HarmonyOS_Sans_Black_Italic.woff") format("woff");
+}
+
+/* Lato - Consolidated font-face declarations */
+
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 100;
+  src:
+    local("Lato Thin"),
+    url("/fonts/Lato-Thin.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Lato";
+  font-style: italic;
+  font-weight: 100;
+  src:
+    local("Lato Thin Italic"),
+    url("/fonts/Lato-ThinItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 300;
+  src:
+    local("Lato Light"),
+    url("/fonts/Lato-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Lato";
+  font-style: italic;
+  font-weight: 300;
+  src:
+    local("Lato Light Italic"),
+    url("/fonts/Lato-LightItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  src:
+    local("Lato Regular"),
+    url("/fonts/Lato-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Lato";
+  font-style: italic;
+  font-weight: 400;
+  src:
+    local("Lato Italic"),
+    url("/fonts/Lato-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  src:
+    local("Lato Bold"),
+    url("/fonts/Lato-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Lato";
+  font-style: italic;
+  font-weight: 700;
+  src:
+    local("Lato Bold Italic"),
+    url("/fonts/Lato-BoldItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 900;
+  src:
+    local("Lato Black"),
+    url("/fonts/Lato-Black.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Lato";
+  font-style: italic;
+  font-weight: 900;
+  src:
+    local("Lato Black Italic"),
+    url("/fonts/Lato-BlackItalic.ttf") format("truetype");
+}

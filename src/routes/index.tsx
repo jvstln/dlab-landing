@@ -1,39 +1,56 @@
-import { createFileRoute } from '@tanstack/react-router'
-import logo from '../logo.svg'
+import { createFileRoute } from "@tanstack/react-router";
+import { ContactCard } from "@/components/contact-card";
+import { Faqs } from "@/components/faqs";
+import { FeaturedProjects } from "@/components/featured-projects";
+import Footer from "@/components/footer";
+import { Header } from "@/components/header";
+import { Hero } from "@/components/hero";
+import { HowItWorks } from "@/components/how-it-works";
+import { ProblemSolution } from "@/components/problem-solution";
+import { Services } from "@/components/services";
+import { TrustedBy } from "@/components/trusted-by";
 
-export const Route = createFileRoute('/')({
-  component: App,
-})
+export const Route = createFileRoute("/")({
+	component: App,
+});
 
 function App() {
-  return (
-    <div className="text-center">
-      <header className="min-h-screen flex flex-col items-center justify-center bg-[#282c34] text-white text-[calc(10px+2vmin)]">
-        <img
-          src={logo}
-          className="h-[40vmin] pointer-events-none animate-[spin_20s_linear_infinite]"
-          alt="logo"
-        />
-        <p>
-          Edit <code>src/routes/index.tsx</code> and save to reload.
-        </p>
-        <a
-          className="text-[#61dafb] hover:underline"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <a
-          className="text-[#61dafb] hover:underline"
-          href="https://tanstack.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn TanStack
-        </a>
-      </header>
-    </div>
-  )
+	return (
+		<div>
+			<div
+				className="relative flex h-screen w-full flex-col"
+				style={{
+					background: `
+					repeating-linear-gradient(
+						30deg,
+						transparent,
+						transparent 20px,
+						color-mix(in srgb, var(--gradient-cyan) 8%, transparent) 20px,
+						color-mix(in srgb, var(--gradient-cyan) 8%, transparent) 21px
+					),
+					repeating-linear-gradient(
+						-30deg,
+						transparent,
+						transparent 20px,
+						color-mix(in srgb, var(--gradient-green) 8%, transparent) 20px,
+						color-mix(in srgb, var(--gradient-green) 8%, transparent) 21px
+					),
+					var(--color-foreground)
+				`,
+				}}
+			>
+				<Header />
+				<Hero />
+			</div>
+
+			<TrustedBy />
+			<ProblemSolution />
+			<FeaturedProjects />
+			<Services />
+			<HowItWorks />
+			<Faqs />
+			<ContactCard />
+			<Footer />
+		</div>
+	);
 }
