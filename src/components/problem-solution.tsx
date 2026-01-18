@@ -125,7 +125,7 @@ export const ProblemSolution = () => {
 				</div>
 
 				{/* Problem & Solution Cards */}
-				<div className="mx-auto flex max-w-7xl flex-col items-center max-sm:gap-8 lg:flex-row">
+				<div className="mx-auto flex max-w-7xl flex-col items-center lg:flex-row">
 					<ProblemSolutionCard
 						title="The Problem"
 						accent="cyan"
@@ -138,14 +138,17 @@ export const ProblemSolution = () => {
 						}}
 					/>
 
-					{/* Divider */}
-					<div className="flex flex-col gap-1">
+					{/* Divider - vertical on mobile, horizontal on desktop */}
+					<div className="flex flex-row gap-1 lg:flex-col">
 						{[1, 2, 3].map((i) => (
 							<div
 								key={i}
-								className="relative h-2 w-56 overflow-hidden rounded-full bg-[#EBEEEE]"
+								className="relative h-14 w-2 overflow-hidden rounded-full bg-[#EBEEEE] lg:h-2 lg:w-56"
 							>
-								<div className="absolute left-0 h-full w-10 rounded-full bg-linear-to-r from-[#EBEEEE] to-[#01FFFF]" />
+								{/* Mobile: gradient flows top to bottom */}
+								<div className="absolute top-0 h-10 w-full rounded-full bg-linear-to-b from-[#EBEEEE] to-[#01FFFF] lg:hidden" />
+								{/* Desktop: gradient flows left to right */}
+								<div className="absolute left-0 hidden h-full w-10 rounded-full bg-linear-to-r from-[#EBEEEE] to-[#01FFFF] lg:block" />
 							</div>
 						))}
 					</div>

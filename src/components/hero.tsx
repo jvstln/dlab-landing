@@ -3,7 +3,7 @@ import { Button } from "./ui/button";
 export const Hero = () => {
 	return (
 		<section className="grid grow flex-col px-4 lg:px-9">
-			<div className="mt-auto mb-18.75 flex items-center justify-between gap-4">
+			<div className="mt-auto mb-18.75 flex items-center justify-between gap-6">
 				<div className="z-10 max-w-[663px] space-y-6">
 					<h1 className="font-lato text-5xl text-white leading-[1.47] lg:text-[46px]">
 						<span className="font-black">We Design Products and </span>
@@ -18,7 +18,7 @@ export const Hero = () => {
 					</Button>
 				</div>
 
-				<div className="z-10 flex max-w-[325px] flex-col items-start gap-5">
+				<div className="z-10 hidden max-w-[325px] flex-col items-start gap-5 md:flex">
 					<p className="text-base text-muted-foreground leading-5">
 						We build HAYA, An AI Onchain UX Intelligence for Growth and
 						Adaptability

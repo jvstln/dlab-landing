@@ -36,7 +36,7 @@ export const ContactCard = () => {
 				</div>
 
 				{/* Right: Form */}
-				<form className="lg:w-7/12">
+				<form className="w-full lg:w-7/12">
 					<h3 className="mb-9 font-bold text-2xl text-card">Let's Talk</h3>
 
 					<FieldGroup className="gap-4">

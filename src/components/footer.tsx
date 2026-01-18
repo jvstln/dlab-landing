@@ -10,10 +10,10 @@ const links = linkOptions([
 
 export default function Footer() {
 	return (
-		<footer className="bg-foreground py-20">
+		<footer className="bg-foreground py-20 text-background">
 			<div className="container mx-auto space-y-14 px-8">
 				{/* Main Text */}
-				<h2 className="max-w-5xl font-normal text-3xl text-white lg:text-[34px]">
+				<h2 className="max-w-5xl font-normal text-3xl lg:text-[34px]">
 					Leveraging UX Principles, AI automation and strategic business models
 					to drive innovation and sustainable business growth.
 				</h2>
@@ -27,12 +27,12 @@ export default function Footer() {
 						dlab@gmail.com
 					</a>
 
-					<nav className="flex flex-wrap gap-4">
+					<nav className="flex flex-wrap">
 						{links.map((link) => (
 							<Link
 								key={link.label}
 								{...link}
-								className="px-8 py-3 text-[#CACAC8] transition-colors hover:text-white"
+								className="px-7 py-3 text-[#CACAC8] transition-colors hover:text-white"
 							>
 								{link.label}
 							</Link>
