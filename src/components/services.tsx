@@ -1,3 +1,5 @@
+import { Reveal, Stagger, StaggerItem } from "./motion/reveal";
+
 const uxServices = [
 	{
 		title: "Product strategy & UX research",
@@ -72,20 +74,27 @@ export const Services = () => {
 			{/* UX Design Services */}
 			<section className="bg-white py-20">
 				<div className="container mx-auto px-8">
-					<div className="mb-16 flex flex-col items-start justify-between gap-12 lg:flex-row">
-						<h2 className="max-w-[483px] font-bold text-4xl text-foreground leading-tight lg:text-[54px]">
-							Product & UX Design Services
-						</h2>
-						<p className="max-w-[470px] text-base text-card leading-5">
-							We design user-centered digital products by combining strategy,
-							research, and thoughtful design—turning complex ideas into
-							intuitive, scalable, and impactful experiences.
-						</p>
-					</div>
+					{/* Header */}
+					<Stagger className="mb-16 flex flex-col items-start justify-between gap-12 lg:flex-row">
+						<StaggerItem>
+							<h2 className="max-w-[483px] font-bold text-4xl text-foreground leading-tight lg:text-[54px]">
+								Product & UX Design Services
+							</h2>
+						</StaggerItem>
+						<StaggerItem>
+							<p className="max-w-[470px] text-base text-card leading-5">
+								We design user-centered digital products by combining strategy,
+								research, and thoughtful design—turning complex ideas into
+								intuitive, scalable, and impactful experiences.
+							</p>
+						</StaggerItem>
+					</Stagger>
 
 					<div className="space-y-0">
 						{uxServices.map((service) => (
-							<ServiceItem key={service.title} {...service} />
+							<Reveal key={service.title}>
+								<ServiceItem {...service} />
+							</Reveal>
 						))}
 					</div>
 				</div>
@@ -94,20 +103,26 @@ export const Services = () => {
 			{/* AI Automation Services */}
 			<section className="bg-white py-20">
 				<div className="container mx-auto px-8">
-					<div className="mb-16 flex flex-col items-start justify-between gap-12 lg:flex-row">
-						<h2 className="max-w-[676px] font-bold text-4xl text-foreground leading-tight lg:text-[54px]">
-							AI Automation & Workflow Services
-						</h2>
-						<p className="max-w-[470px] text-base text-card leading-5">
-							We design and implement AI-powered workflows that automate tasks,
-							connect systems, and optimize operations—helping teams work
-							faster, smarter, and with less manual effort.
-						</p>
-					</div>
+					<Stagger className="mb-16 flex flex-col items-start justify-between gap-12 lg:flex-row">
+						<StaggerItem>
+							<h2 className="max-w-[676px] font-bold text-4xl text-foreground leading-tight lg:text-[54px]">
+								AI Automation & Workflow Services
+							</h2>
+						</StaggerItem>
+						<StaggerItem>
+							<p className="max-w-[470px] text-base text-card leading-5">
+								We design and implement AI-powered workflows that automate
+								tasks, connect systems, and optimize operations—helping teams
+								work faster, smarter, and with less manual effort.
+							</p>
+						</StaggerItem>
+					</Stagger>
 
 					<div className="space-y-0">
 						{automationServices.map((service) => (
-							<ServiceItem key={service.title} {...service} />
+							<Reveal key={service.title}>
+								<ServiceItem {...service} />
+							</Reveal>
 						))}
 					</div>
 				</div>

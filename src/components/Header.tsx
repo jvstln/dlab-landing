@@ -1,4 +1,5 @@
 import { Link, linkOptions } from "@tanstack/react-router";
+import { motion } from "motion/react";
 import { Button } from "./ui/button";
 
 const links = linkOptions([
@@ -10,7 +11,12 @@ const links = linkOptions([
 
 export const Header = () => {
 	return (
-		<nav className="fixed inset-x-0 top-0 z-50 h-16 bg-foreground text-background">
+		<motion.nav
+			className="fixed inset-x-0 top-0 z-50 h-16 bg-foreground text-background"
+			initial={{ opacity: 0, y: -10 }}
+			animate={{ opacity: 1, y: 0 }}
+			transition={{ duration: 0.6, ease: [0.19, 1, 0.22, 1] }}
+		>
 			<div className="container mx-auto flex h-full items-center justify-between px-4">
 				<Link to="/" className="flex items-center gap-2">
 					<img src="/brand/logo.svg" alt="DLab Agency Logo" />
@@ -31,6 +37,6 @@ export const Header = () => {
 
 				<Button variant="primary">Let's Talk</Button>
 			</div>
-		</nav>
+		</motion.nav>
 	);
 };

@@ -1,5 +1,6 @@
 import { Link, linkOptions } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
+import { Reveal, Stagger, StaggerItem } from "./motion/reveal";
 
 const links = linkOptions([
 	{ label: "Works", to: "/" },
@@ -13,34 +14,42 @@ export default function Footer() {
 		<footer className="bg-foreground py-20 text-background">
 			<div className="container mx-auto space-y-14 px-8">
 				{/* Main Text */}
-				<h2 className="max-w-5xl font-normal text-3xl lg:text-[34px]">
-					Leveraging UX Principles, AI automation and strategic business models
-					to drive innovation and sustainable business growth.
-				</h2>
+				<Reveal>
+					<h2 className="max-w-5xl font-normal text-3xl lg:text-[34px]">
+						Leveraging UX Principles, AI automation and strategic business
+						models to drive innovation and sustainable business growth.
+					</h2>
+				</Reveal>
 
 				{/* Email & Nav */}
-				<div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
-					<a
-						href="mailto:dlab@gmail.com"
-						className="bg-linear-to-r from-gradient-cyan to-gradient-green bg-clip-text font-bold text-2xl text-transparent underline transition-opacity hover:opacity-80"
-					>
-						dlab@gmail.com
-					</a>
+				<Stagger className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
+					<StaggerItem>
+						<a
+							href="mailto:dlab@gmail.com"
+							className="bg-linear-to-r from-gradient-cyan to-gradient-green bg-clip-text font-bold text-2xl text-transparent underline transition-opacity hover:opacity-80"
+						>
+							dlab@gmail.com
+						</a>
+					</StaggerItem>
 
-					<nav className="flex flex-wrap">
-						{links.map((link) => (
-							<Link
-								key={link.label}
-								{...link}
-								className="px-7 py-3 text-[#CACAC8] transition-colors hover:text-white"
-							>
-								{link.label}
-							</Link>
-						))}
-					</nav>
-				</div>
+					<StaggerItem>
+						<nav className="flex flex-wrap">
+							{links.map((link) => (
+								<Link
+									key={link.label}
+									{...link}
+									className="px-7 py-3 text-[#CACAC8] transition-colors hover:text-white"
+								>
+									{link.label}
+								</Link>
+							))}
+						</nav>
+					</StaggerItem>
+				</Stagger>
 
-				<DLabText />
+				<Reveal>
+					<DLabText />
+				</Reveal>
 			</div>
 		</footer>
 	);

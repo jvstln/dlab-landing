@@ -1,17 +1,20 @@
+import { Reveal, Stagger, StaggerItem } from "./motion/reveal";
 import { Button } from "./ui/button";
 
 export const TrustedBy = () => {
 	return (
 		<section className="bg-white py-12">
 			<div className="container mx-auto flex flex-col items-center gap-6 px-8">
-				<p className="max-w-[648px] text-center font-light text-card text-sm leading-snug">
-					Trusted by startups, founders, and product teams across fintech, SaaS,
-					and Web3.
-				</p>
+				<Reveal>
+					<p className="max-w-[648px] text-center font-light text-card text-sm leading-snug">
+						Trusted by startups, founders, and product teams across fintech,
+						SaaS, and Web3.
+					</p>
+				</Reveal>
 
-				<div className="flex flex-wrap items-center justify-center gap-12 lg:gap-16">
+				<Stagger className="flex flex-wrap items-center justify-center gap-12 lg:gap-16">
 					{[1, 2, 3, 4].map((i) => (
-						<div
+						<StaggerItem
 							key={i}
 							className="flex items-center gap-2 opacity-60 transition-opacity hover:opacity-100"
 						>
@@ -37,11 +40,13 @@ export const TrustedBy = () => {
 								/>
 							</svg>
 							<span className="font-black text-[#9C9C9B] text-xl">Haya</span>
-						</div>
+						</StaggerItem>
 					))}
 
-					<Button variant="secondary">+10 More</Button>
-				</div>
+					<StaggerItem>
+						<Button variant="secondary">+10 More</Button>
+					</StaggerItem>
+				</Stagger>
 			</div>
 		</section>
 	);

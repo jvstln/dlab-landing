@@ -1,3 +1,5 @@
+import { Reveal, Stagger, StaggerItem } from "./motion/reveal";
+
 const problemItems = [
 	{ id: 1, text: "Poor UX that hurts adoption and retention" },
 	{ id: 2, text: "Manual workflows that waste time and money" },
@@ -68,7 +70,7 @@ const ProblemSolutionCard = ({
 	items,
 	summary,
 }: ProblemSolutionCardProps) => (
-	<div className="w-full rounded-3xl border border-muted-foreground bg-white lg:w-1/2">
+	<Reveal className="motion-safe:hover:-translate-y-1 w-full rounded-3xl border border-muted-foreground bg-white motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out lg:w-1/2">
 		<div
 			className="relative m-px h-[350px] overflow-hidden rounded-t-3xl p-5"
 			style={{
@@ -106,23 +108,27 @@ const ProblemSolutionCard = ({
 			<h3 className="mb-4 font-bold text-card text-lg">{summary.heading}</h3>
 			<p className="text-base text-card leading-5">{summary.description}</p>
 		</div>
-	</div>
+	</Reveal>
 );
-
 export const ProblemSolution = () => {
 	return (
 		<section className="bg-white py-20 lg:py-32">
 			<div className="container mx-auto px-8">
 				{/* Header */}
-				<div className="mx-auto mb-16 max-w-4xl space-y-6 text-center">
-					<h2 className="font-bold text-4xl text-foreground leading-tight lg:text-[54px]">
-						We are Empowering Innovation with UX Engineering
-					</h2>
-					<p className="mx-auto max-w-[643px] text-base text-card leading-5">
-						We design and build infrastructure, providing UX analytics, empower
-						builders to identify and fix friction points in minutes, not weeks.
-					</p>
-				</div>
+				<Stagger className="mx-auto mb-16 max-w-4xl space-y-6 text-center">
+					<StaggerItem>
+						<h2 className="font-bold text-4xl text-foreground leading-tight lg:text-[54px]">
+							We are Empowering Innovation with UX Engineering
+						</h2>
+					</StaggerItem>
+					<StaggerItem>
+						<p className="mx-auto max-w-[643px] text-base text-card leading-5">
+							We design and build infrastructure, providing UX analytics,
+							empower builders to identify and fix friction points in minutes,
+							not weeks.
+						</p>
+					</StaggerItem>
+				</Stagger>
 
 				{/* Problem & Solution Cards */}
 				<div className="mx-auto flex max-w-7xl flex-col items-center lg:flex-row">

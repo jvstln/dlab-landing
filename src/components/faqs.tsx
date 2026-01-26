@@ -1,3 +1,4 @@
+import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
 import {
 	Accordion,
 	AccordionContent,
@@ -43,37 +44,43 @@ export const Faqs = () => {
 		<section className="bg-white py-20">
 			<div className="container mx-auto px-8">
 				{/* Header */}
-				<div className="mb-16 flex flex-col items-start justify-between gap-12 lg:flex-row">
-					<h2 className="max-w-[676px] font-bold text-4xl text-foreground leading-tight lg:text-[54px]">
-						We have a Question, We Provide the Answer
-					</h2>
-					<p className="max-w-[470px] text-base text-card leading-5">
-						Got questions? We've answered the most common ones to help you get
-						started with confidence.
-					</p>
-				</div>
+				<Stagger className="mb-16 flex flex-col items-start justify-between gap-12 lg:flex-row">
+					<StaggerItem>
+						<h2 className="max-w-[676px] font-bold text-4xl text-foreground leading-tight lg:text-[54px]">
+							We have a Question, We Provide the Answer
+						</h2>
+					</StaggerItem>
+					<StaggerItem>
+						<p className="max-w-[470px] text-base text-card leading-5">
+							Got questions? We've answered the most common ones to help you get
+							started with confidence.
+						</p>
+					</StaggerItem>
+				</Stagger>
 
 				{/* FAQ List */}
-				<Accordion type="single" collapsible defaultValue="item-0">
-					{faqs.map((faq, i) => (
-						<AccordionItem
-							key={faq.question}
-							value={`item-${i}`}
-							className="border-[#CFD1C9] border-b last:border-b"
-						>
-							<AccordionTrigger className="w-full gap-8 px-6 py-8 text-left transition-colors hover:bg-slate-50 hover:no-underline [&>svg]:size-6">
-								<h3 className="flex-1 font-bold text-2xl text-[#1B1139] opacity-88">
-									{faq.question}
-								</h3>
-							</AccordionTrigger>
-							<AccordionContent className="px-6 pt-4 pb-8">
-								<p className="text-xl leading-[105%] opacity-70">
-									{faq.answer}
-								</p>
-							</AccordionContent>
-						</AccordionItem>
-					))}
-				</Accordion>
+				<Reveal>
+					<Accordion type="single" collapsible defaultValue="item-0">
+						{faqs.map((faq, i) => (
+							<AccordionItem
+								key={faq.question}
+								value={`item-${i}`}
+								className="border-[#CFD1C9] border-b last:border-b"
+							>
+								<AccordionTrigger className="w-full gap-8 px-6 py-8 text-left transition-colors hover:bg-slate-50 hover:no-underline [&>svg]:size-6">
+									<h3 className="flex-1 font-bold text-2xl text-[#1B1139] opacity-88">
+										{faq.question}
+									</h3>
+								</AccordionTrigger>
+								<AccordionContent className="px-6 pt-4 pb-8">
+									<p className="text-xl leading-[105%] opacity-70">
+										{faq.answer}
+									</p>
+								</AccordionContent>
+							</AccordionItem>
+						))}
+					</Accordion>
+				</Reveal>
 			</div>
 		</section>
 	);

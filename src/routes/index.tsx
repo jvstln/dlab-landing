@@ -6,6 +6,7 @@ import Footer from "@/components/footer";
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
 import { HowItWorks } from "@/components/how-it-works";
+import { Reveal } from "@/components/motion/reveal";
 import { ProblemSolution } from "@/components/problem-solution";
 import { Services } from "@/components/services";
 import { TrustedBy } from "@/components/trusted-by";
@@ -18,7 +19,7 @@ function App() {
 	return (
 		<div>
 			<div
-				className="relative flex h-screen w-full flex-col"
+				className="relative flex h-full max-h-screen w-full flex-col"
 				style={{
 					background: `
 					repeating-linear-gradient(
@@ -43,14 +44,30 @@ function App() {
 				<Hero />
 			</div>
 
-			<TrustedBy />
-			<ProblemSolution />
-			<FeaturedProjects />
-			<Services />
-			<HowItWorks />
-			<Faqs />
-			<ContactCard />
-			<Footer />
+			<Reveal>
+				<TrustedBy />
+			</Reveal>
+			<Reveal>
+				<ProblemSolution />
+			</Reveal>
+			<Reveal>
+				<FeaturedProjects />
+			</Reveal>
+			<Reveal>
+				<Services />
+			</Reveal>
+			<Reveal>
+				<HowItWorks />
+			</Reveal>
+			<Reveal>
+				<Faqs />
+			</Reveal>
+			<Reveal>
+				<ContactCard />
+			</Reveal>
+			<Reveal>
+				<Footer />
+			</Reveal>
 		</div>
 	);
 }
