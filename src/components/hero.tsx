@@ -1,8 +1,12 @@
+import { HeroAnimation } from "./hero-animation";
 import { Button } from "./ui/button";
 
 export const Hero = () => {
 	return (
-		<section className="grid grow flex-col px-4 lg:px-9">
+		<section className="flex grow flex-col px-4 lg:px-9">
+			<div className="flex w-full grow items-center justify-center">
+				<HeroAnimation />
+			</div>
 			<div className="mt-auto mb-18.75 flex items-center justify-between gap-6">
 				<div className="z-10 max-w-[663px] space-y-6">
 					<h1 className="font-lato text-5xl text-white leading-[1.47] lg:text-[46px]">
