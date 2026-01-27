@@ -4,8 +4,9 @@ import { Button } from "./ui/button";
 export const Hero = () => {
 	return (
 		<section className="flex grow flex-col px-4 lg:px-9">
-			<div className="flex w-full grow items-center justify-center">
-				<HeroAnimation />
+			<div className="mt-24 flex w-full grow items-center justify-center">
+				{/* <HeroAnimation className="h-full w-full max-w-[320px] sm:max-w-[360px] md:max-w-[420px] lg:max-w-[520px] xl:max-w-[620px]" /> */}
+				<HeroAnimation className="h-full w-auto" />
 			</div>
 			<div className="mt-auto mb-18.75 flex items-center justify-between gap-6">
 				<div className="z-10 max-w-[663px] space-y-6">
