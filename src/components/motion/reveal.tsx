@@ -1,4 +1,3 @@
-import { Slot } from "@radix-ui/react-slot";
 import { motion } from "motion/react";
 import * as React from "react";
 import { cn } from "@/lib/utils";
@@ -22,7 +21,6 @@ type RevealProps = React.ComponentProps<typeof motion.div> & {
 	y?: number;
 	duration?: number;
 	once?: boolean;
-	asChild?: boolean;
 };
 
 export function Reveal({
@@ -32,14 +30,11 @@ export function Reveal({
 	once = true,
 	className,
 	children,
-	asChild,
 	...props
 }: RevealProps) {
 	const reduced = usePrefersReducedMotion();
-	const Component = asChild ? motion.create(Slot) : motion.div;
-
 	return (
-		<Component
+		<motion.div
 			initial={reduced ? false : { opacity: 0, y }}
 			whileInView={reduced ? undefined : { opacity: 1, y: 0 }}
 			viewport={{ once, amount: 0.35 }}
@@ -50,7 +45,7 @@ export function Reveal({
 			{...props}
 		>
 			{children}
-		</Component>
+		</motion.div>
 	);
 }
 

@@ -3,7 +3,7 @@ import { ContactCard } from "@/components/contact-card";
 import { Faqs } from "@/components/faqs";
 import { FeaturedProjects } from "@/components/featured-projects";
 import Footer from "@/components/footer";
-import { Header } from "@/components/header";
+import { Header } from "@/components/Header.tsx";
 import { Hero } from "@/components/hero";
 import { HowItWorks } from "@/components/how-it-works";
 import { Reveal } from "@/components/motion/reveal";

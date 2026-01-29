@@ -37,7 +37,7 @@ export const ContactCard = () => {
 				</Reveal>
 
 				{/* Right: Form */}
-				<Reveal asChild>
+				<Reveal>
 					<form className="w-full lg:w-7/12">
 						<h3 className="mb-9 font-bold text-2xl text-card">Let's Talk</h3>
 

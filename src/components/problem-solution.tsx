@@ -132,7 +132,7 @@ export const ProblemSolution = () => {
 
 				{/* Problem & Solution Cards */}
 				<div className="mx-auto flex max-w-7xl flex-col items-center lg:flex-row">
-					<Reveal asChild>
+					<Reveal className="w-full lg:w-1/2">
 						<ProblemSolutionCard
 							title="The Problem"
 							accent="cyan"
@@ -161,7 +161,7 @@ export const ProblemSolution = () => {
 						))}
 					</div>
 
-					<Reveal asChild>
+					<Reveal className="w-full lg:w-1/2">
 						<ProblemSolutionCard
 							title="The Solution"
 							accent="orange"
