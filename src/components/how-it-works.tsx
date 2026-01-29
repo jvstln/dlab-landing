@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { steps } from "@/lib/data/how-it-works";
+import { Reveal, Stagger, StaggerItem } from "./motion/reveal";
 
 interface StepCardProps {
 	title: string;
@@ -9,7 +10,7 @@ interface StepCardProps {
 }
 
 const StepCard = ({ title, description, image, stepNumber }: StepCardProps) => (
-	<div className="group relative h-[341px] w-full overflow-hidden rounded-[15px] border border-muted-foreground">
+	<div className="group motion-safe:hover:-translate-y-1 relative h-[341px] w-full overflow-hidden rounded-[15px] border border-muted-foreground motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out">
 		{/* Background with radial gradient */}
 		<div
 			className="absolute inset-2"
@@ -42,29 +43,34 @@ export const HowItWorks = () => {
 		<section className="bg-white py-20 lg:py-32">
 			<div className="container mx-auto px-8">
 				{/* Header */}
-				<div className="mb-16 flex flex-col items-start justify-between gap-12 lg:flex-row lg:items-center">
-					<h2 className="max-w-[676px] font-bold text-4xl text-foreground leading-tight lg:text-[54px]">
-						How it Works
-					</h2>
-					<p className="max-w-[470px] text-base text-card leading-5">
-						We start by understanding your product, users, and goals. From
-						there, we design, build, and automate solutions that solve real
-						problems, integrate seamlessly into your workflow, and scale as your
-						business grows. Every step is collaborative, transparent, and
-						focused on measurable impact.
-					</p>
-				</div>
+				<Stagger className="mb-16 flex flex-col items-start justify-between gap-12 lg:flex-row lg:items-center">
+					<StaggerItem>
+						<h2 className="max-w-[676px] font-bold text-4xl text-foreground leading-tight lg:text-[54px]">
+							How it Works
+						</h2>
+					</StaggerItem>
+					<StaggerItem>
+						<p className="max-w-[470px] text-base text-card leading-5">
+							We start by understanding your product, users, and goals. From
+							there, we design, build, and automate solutions that solve real
+							problems, integrate seamlessly into your workflow, and scale as
+							your business grows. Every step is collaborative, transparent, and
+							focused on measurable impact.
+						</p>
+					</StaggerItem>
+				</Stagger>
 
 				{/* Cards Grid - 1 col mobile, 2 cols tablet, 4 cols desktop */}
 				<div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
 					{steps.map((step) => (
-						<StepCard
-							key={step.id}
-							title={step.title}
-							description={step.description}
-							image={step.image}
-							stepNumber={step.id}
-						/>
+						<Reveal key={step.id}>
+							<StepCard
+								title={step.title}
+								description={step.description}
+								image={step.image}
+								stepNumber={step.id}
+							/>
+						</Reveal>
 					))}
 				</div>
 			</div>

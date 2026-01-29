@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Reveal, Stagger, StaggerItem } from "./motion/reveal";
 import { Button } from "./ui/button";
 
 const projects = [
@@ -59,21 +60,28 @@ export const FeaturedProjects = () => {
 		<section className="overflow-hidden bg-white py-20">
 			<div className="container mx-auto px-8">
 				{/* Header */}
-				<div className="mb-16 flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
-					<h2 className="max-w-[483px] font-bold text-4xl text-foreground leading-tight lg:text-[54px]">
-						Featured Projects
-					</h2>
-					<p className="max-w-[470px] text-base text-card leading-5">
-						We help startups and growing teams design high-performing digital
-						products and automate workflows using AI — so you ship faster,
-						reduce cost, and grow smarter.
-					</p>
-				</div>
+				<Stagger className="mb-16 flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
+					<StaggerItem>
+						<h2 className="max-w-[483px] font-bold text-4xl text-foreground leading-tight lg:text-[54px]">
+							Featured Projects
+						</h2>
+					</StaggerItem>
+					<StaggerItem>
+						<p className="max-w-[470px] text-base text-card leading-5">
+							We help startups and growing teams design high-performing digital
+							products and automate workflows using AI — so you ship faster,
+							reduce cost, and grow smarter.
+						</p>
+					</StaggerItem>
+				</Stagger>
 
 				{/* Main Projects */}
 				<div className="mb-16 flex flex-col gap-8 lg:flex-row lg:gap-16">
 					{projects.map((project) => (
-						<div key={project.title} className="flex-1 space-y-6">
+						<Reveal
+							key={project.title}
+							className="motion-safe:hover:-translate-y-1 flex-1 space-y-6 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out"
+						>
 							<div
 								className={`rounded-[35px] bg-linear-to-br ${project.gradient} p-7`}
 							>
@@ -102,18 +110,18 @@ export const FeaturedProjects = () => {
 									<ArrowUpRight className="size-6" />
 								</Button>
 							</div>
-						</div>
+						</Reveal>
 					))}
 				</div>
 
 				{/* Gallery Scroll */}
 				<div className="relative overflow-hidden">
-					<div className="hover:paused flex animate-scroll gap-3">
+					<Reveal className="hover:paused flex animate-scroll gap-3">
 						{galleryItems.concat(galleryItems).map((item, i) => (
 							<div
 								key={item.image}
 								className={cn(
-									"w-[318px] shrink-0 rounded-[18px] bg-linear-to-br p-3",
+									"motion-safe:hover:-translate-y-1 w-[318px] shrink-0 rounded-[18px] bg-linear-to-br p-3 motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out",
 									item.gradient,
 								)}
 							>
@@ -124,7 +132,7 @@ export const FeaturedProjects = () => {
 								/>
 							</div>
 						))}
-					</div>
+					</Reveal>
 				</div>
 			</div>
 		</section>
