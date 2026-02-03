@@ -7,9 +7,9 @@ import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
 import { HowItWorks } from "@/components/how-it-works";
 import { Reveal } from "@/components/motion/reveal";
-import { ProblemSolution } from "@/components/problem-solution";
 import { Services } from "@/components/services";
 import { TrustedBy } from "@/components/trusted-by";
+import { WhatWeBuild } from "@/components/what-we-build";
 
 export const Route = createFileRoute("/")({
 	component: App,
@@ -48,7 +48,7 @@ function App() {
 				<TrustedBy />
 			</Reveal>
 			<Reveal>
-				<ProblemSolution />
+				<WhatWeBuild />
 			</Reveal>
 			<Reveal>
 				<FeaturedProjects />
