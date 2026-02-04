@@ -53,6 +53,8 @@ const buttonVariants = cva(
 					"button-primary-color rounded-full font-semibold hover:opacity-90",
 				secondary:
 					"rounded-full bg-muted-foreground font-semibold hover:opacity-90",
+				outline:
+					"rounded-full border-2 border-current bg-transparent font-semibold shadow-sm hover:bg-accent hover:text-accent-foreground",
 			},
 			size: {
 				default: "h-12 px-7 py-2 has-[>svg]:px-3",
