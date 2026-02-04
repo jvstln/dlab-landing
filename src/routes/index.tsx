@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ContactCard } from "@/components/contact-card";
 import { Faqs } from "@/components/faqs";
-import { FeaturedProjects } from "@/components/featured-projects";
 import Footer from "@/components/footer";
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
@@ -9,6 +8,7 @@ import { HowItWorks } from "@/components/how-it-works";
 import { Reveal } from "@/components/motion/reveal";
 import { Services } from "@/components/services";
 import { TrustedBy } from "@/components/trusted-by";
+import { WeBuildHaya } from "@/components/we-build-haya";
 import { WhatWeBuild } from "@/components/what-we-build";
 
 export const Route = createFileRoute("/")({
@@ -51,7 +51,7 @@ function App() {
 				<WhatWeBuild />
 			</Reveal>
 			<Reveal>
-				<FeaturedProjects />
+				<WeBuildHaya />
 			</Reveal>
 			<Reveal>
 				<Services />

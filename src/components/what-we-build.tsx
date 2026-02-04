@@ -120,13 +120,13 @@ export function WhatWeBuild() {
 	}, []);
 
 	return (
-		<section className="relative flex h-screen w-full items-center justify-center overflow-hidden">
+		<section className="relative flex min-h-250 w-full items-center justify-center overflow-hidden">
 			{/* Background Elements */}
 			<motion.div
 				variants={backgroundVariants}
 				initial="initial"
 				animate={isVisible ? "animate" : "initial"}
-				className="absolute size-247 rounded-full border"
+				className="absolute aspect-square h-93/100 rounded-full border"
 				style={{
 					background:
 						"radial-gradient(50% 50% at 50% 50%, rgba(244, 252, 249, 0) 0%, rgba(17, 255, 168, 0.3) 100%)",
@@ -137,7 +137,7 @@ export function WhatWeBuild() {
 				variants={backgroundVariants}
 				initial="initial"
 				animate={isVisible ? "animate" : "initial"}
-				className="absolute size-214 rounded-full"
+				className="absolute size-210 rounded-full"
 				style={{
 					background:
 						"radial-gradient(50% 50% at 50% 50%, rgba(244, 252, 249, 0) 0%, rgba(222, 245, 237, 0.27) 100%)",

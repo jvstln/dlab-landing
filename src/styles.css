@@ -95,7 +95,7 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  --animate-scroll: scroll 30s linear infinite;
+  --animate-marquee: marquee 30s linear infinite;
 }
 
 @layer base {
@@ -122,7 +122,7 @@
   }
 }
 
-@keyframes scroll {
+@keyframes marquee {
   0% {
     transform: translateX(0);
   }
