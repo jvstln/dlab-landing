@@ -49,9 +49,7 @@ function App() {
 			<Reveal>
 				<WeBuildHaya />
 			</Reveal>
-			<Reveal>
-				<Services />
-			</Reveal>
+			<Services />
 			<Reveal>
 				<HowItWorks />
 			</Reveal>

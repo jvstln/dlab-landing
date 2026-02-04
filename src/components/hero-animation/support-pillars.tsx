@@ -1,6 +1,5 @@
-export const SupportPillars = () => (
+export const RightSupportPillar = () => (
 	<g mask="url(#mask90_80_199)">
-		{/* Right */}
 		<circle
 			cx="3.124"
 			cy="3.124"
@@ -22,7 +21,10 @@ export const SupportPillars = () => (
 			fill="#08492A"
 			fillOpacity="0.25"
 		/>
-		{/* Left */}
+		</g>
+)
+export const LeftSupportPillar = () => (
+	<g mask="url(#mask90_80_199)">
 		<circle
 			cx="3.124"
 			cy="3.124"
@@ -43,8 +45,12 @@ export const SupportPillars = () => (
 			d="M101.502 175.725C101.502 176.335 101.074 176.887 100.381 177.287V341.297C101.074 340.897 101.502 340.345 101.502 339.735V175.725Z"
 			fill="#08492A"
 			fillOpacity="0.25"
-		/>
-		{/* Center */}
+		/>		
+	</g>
+);
+
+export const CenterSupportPillar = () => (
+	<g mask="url(#mask90_80_199)">
 		<circle
 			cx="3.124"
 			cy="3.124"
@@ -68,3 +74,4 @@ export const SupportPillars = () => (
 		/>
 	</g>
 );
+

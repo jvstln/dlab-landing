@@ -126,7 +126,7 @@ export function WhatWeBuild() {
 				variants={backgroundVariants}
 				initial="initial"
 				animate={isVisible ? "animate" : "initial"}
-				className="absolute aspect-square h-93/100 rounded-full border"
+				className="absolute aspect-square h-85/100 rounded-full border"
 				style={{
 					background:
 						"radial-gradient(50% 50% at 50% 50%, rgba(244, 252, 249, 0) 0%, rgba(17, 255, 168, 0.3) 100%)",
@@ -145,7 +145,7 @@ export function WhatWeBuild() {
 			/>
 			<img
 				src="/images/dlab-noise-animation-transparent.webp"
-				className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 rounded-b-full"
+				className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 rounded-b-full opacity-60"
 				alt="DLAB Noise Animation"
 			/>
 

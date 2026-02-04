@@ -1,11 +1,11 @@
-import type { Transition, Variants } from "motion/react";
+import type { Variants } from "motion/react";
 import { motion } from "motion/react";
 import type { JSX } from "react";
 import { cn } from "@/lib/utils";
 import { Gradients, LegacyGradients } from "./colors";
 import { PlatformBase } from "./platform-base";
 import { RoofTop, TowerParapet } from "./roof";
-import { SupportPillars } from "./support-pillars";
+import { CenterSupportPillar, LeftSupportPillar, RightSupportPillar } from "./support-pillars";
 import { PlatformWall, TowerBody } from "./tower-core";
 import { LeftWindows, RightWindows } from "./windows";
 
@@ -19,88 +19,61 @@ type LayerCustom = { enter: LayerEnter; order: number };
 
 const DEFAULT_ENTER: LayerEnter = { x: 0, y: 0, rotate: 0 };
 
-type LoopConfig = {
+type ParticleConfig = {
 	animate: {
-		opacity?: number[];
-		x?: number[];
-		y?: number[];
-		rotate?: number[];
-		scale?: number[];
+		opacity: number[];
+		x: number[];
+		y: number[];
+		rotate: number[];
 	};
-	transition: Transition;
-	baseDelay?: number;
+	transition: {
+		duration: number;
+		repeat: number;
+		repeatType: "loop" | "mirror";
+		ease: "easeInOut";
+		delay: number;
+	};
 };
 
-const LOOP_EFFECTS: Record<string, LoopConfig> = {
-	"left-windows": {
+// Configuration for cycling animation
+const MAX_CONCURRENT_ANIMATIONS = 4;
+const ANIMATION_CYCLE_DURATION = 5; // seconds per animation cycle
+const ASSEMBLY_BATCH_SIZE = 3;
+const ASSEMBLY_BATCH_DELAY = 0.8; // seconds between batches
+const ASSEMBLY_START_DELAY = 6; // time for full assembly before breathing starts
+
+// Generate particle effects - all layers animate but cycle so only ~4 at a time
+const generateParticleEffect = (
+	enter: LayerEnter,
+	index: number,
+): ParticleConfig => {
+	// Vary the separation intensity
+	const intensity = 0.4 + (index % 3) * 0.12;
+	
+	// Duration with slight variation
+	const duration = ANIMATION_CYCLE_DURATION + (index % 3) * 0.8;
+	
+	// Calculate delay so only MAX_CONCURRENT_ANIMATIONS layers animate at once
+	// Each layer starts at a different phase in the cycle
+	const cyclePhase = index % MAX_CONCURRENT_ANIMATIONS;
+	const cycleOffset = Math.floor(index / MAX_CONCURRENT_ANIMATIONS);
+	const delay = ASSEMBLY_START_DELAY + cyclePhase * (duration / MAX_CONCURRENT_ANIMATIONS) + cycleOffset * 1.2;
+
+	return {
 		animate: {
-			opacity: [1, 1, 0.4, 0.75, 1],
-			x: [0, 0, -6, 5, 0],
-			y: [0, 0, -3, 2, 0],
+			x: [0, enter.x * intensity, 0],
+			y: [0, enter.y * intensity, 0],
+			rotate: [0, enter.rotate * intensity * 0.5, 0],
+			opacity: [1, 0.55, 1],
 		},
 		transition: {
-			duration: 9,
-			repeat: Infinity,
-			repeatType: "loop",
-			ease: "easeInOut",
+			duration,
+			repeat: Number.POSITIVE_INFINITY,
+			repeatType: "loop" as const,
+			ease: "easeInOut" as const,
+			delay,
 		},
-		baseDelay: 3.2,
-	},
-	"right-windows": {
-		animate: {
-			opacity: [1, 1, 0.45, 0.8, 1],
-			x: [0, 0, 7, -4, 0],
-			y: [0, 0, -2, 3, 0],
-		},
-		transition: {
-			duration: 9.5,
-			repeat: Infinity,
-			repeatType: "loop",
-			ease: "easeInOut",
-		},
-		baseDelay: 3.4,
-	},
-	"tower-parapet": {
-		animate: {
-			opacity: [1, 1, 0.6, 0.85, 1],
-			x: [0, 0, 4, -3, 0],
-			y: [0, 0, -5, 3, 0],
-		},
-		transition: {
-			duration: 10.5,
-			repeat: Infinity,
-			repeatType: "loop",
-			ease: "easeInOut",
-		},
-		baseDelay: 3.8,
-	},
-	"roof-top": {
-		animate: {
-			scale: [1, 1, 0.95, 1.03, 1],
-			rotate: [0, 0, -1.2, 1, 0],
-			opacity: [1, 1, 0.7, 0.9, 1],
-		},
-		transition: {
-			duration: 11,
-			repeat: Infinity,
-			repeatType: "loop",
-			ease: "easeInOut",
-		},
-		baseDelay: 4.2,
-	},
-	"support-pillars": {
-		animate: {
-			opacity: [1, 1, 0.5, 0.8, 1],
-			y: [0, 0, 6, -4, 0],
-		},
-		transition: {
-			duration: 8.5,
-			repeat: Infinity,
-			repeatType: "mirror",
-			ease: "easeInOut",
-		},
-		baseDelay: 3.6,
-	},
+	};
 };
 
 const layers: LayerConfig[] = [
@@ -126,8 +99,18 @@ const layers: LayerConfig[] = [
 		enter: { y: 50, x: -10, rotate: -1 },
 	},
 	{
-		id: "support-pillars",
-		Component: SupportPillars,
+		id: "right-support-pillar",
+		Component: RightSupportPillar,
+		enter: { x: 0, y: 45, rotate: -2 },
+	},
+	{
+		id: "left-support-pillar",
+		Component: LeftSupportPillar,
+		enter: { x: 0, y: 45, rotate: -2 },
+	},
+	{
+		id: "center-support-pillar",
+		Component: CenterSupportPillar,
 		enter: { x: 0, y: 45, rotate: -2 },
 	},
 	{
@@ -136,7 +119,7 @@ const layers: LayerConfig[] = [
 		enter: { x: 22, y: -20, rotate: 3 },
 	},
 	{ id: "roof-top", Component: RoofTop, enter: { x: -25, y: -30, rotate: -3 } },
-];
+] as const;
 
 const layerVariants: Variants = {
 	hidden: (custom?: LayerCustom) => {
@@ -151,6 +134,9 @@ const layerVariants: Variants = {
 	},
 	visible: (custom?: LayerCustom) => {
 		const order = custom?.order ?? 0;
+		// Batch layers: 3 at a time assemble together
+		const batch = Math.floor(order / ASSEMBLY_BATCH_SIZE);
+		const positionInBatch = order % ASSEMBLY_BATCH_SIZE;
 		return {
 			opacity: 1,
 			x: 0,
@@ -158,12 +144,12 @@ const layerVariants: Variants = {
 			rotate: 0,
 			scale: 1,
 			transition: {
-				delay: 0.2 + order * 0.5,
-				duration: 0.65,
+				delay: 0.3 + batch * ASSEMBLY_BATCH_DELAY + positionInBatch * 0.15,
+				duration: 0.9,
 				ease: [0.19, 1, 0.22, 1],
 				type: "spring",
-				damping: 20,
-				stiffness: 160,
+				damping: 16,
+				stiffness: 100,
 			},
 		};
 	},
@@ -201,8 +187,7 @@ export const HeroAnimation = (
 
 			<motion.g animate={FLOAT_ANIMATION} transition={FLOAT_TRANSITION}>
 				{layers.map(({ id, Component, enter }, index) => {
-					const loop = LOOP_EFFECTS[id];
-					const loopDelay = (loop?.baseDelay ?? 3) + index * 0.12;
+					const particleEffect = generateParticleEffect(enter, index);
 					return (
 						<motion.g
 							key={id}
@@ -211,16 +196,12 @@ export const HeroAnimation = (
 							animate="visible"
 							custom={{ enter, order: index }}
 						>
-							{loop ? (
-								<motion.g
-									animate={loop.animate}
-									transition={{ ...loop.transition, delay: loopDelay }}
-								>
-									<Component />
-								</motion.g>
-							) : (
+							<motion.g
+								animate={particleEffect.animate}
+								transition={particleEffect.transition}
+							>
 								<Component />
-							)}
+							</motion.g>
 						</motion.g>
 					);
 				})}

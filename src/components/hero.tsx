@@ -4,17 +4,17 @@ import { Button } from "./ui/button";
 
 export const Hero = () => {
 	return (
-		<section className="flex grow flex-col px-4 lg:px-9">
-			<div className="mt-24 flex w-full flex-1 items-center justify-center">
-				{/* <HeroAnimation className="h-full w-full max-w-[320px] sm:max-w-[360px] md:max-w-[420px] lg:max-w-[520px] xl:max-w-[620px]" /> */}
-				<HeroAnimation className="h-full w-auto max-md:max-h-[45vh]" />
+		<section className="flex grow relative min-h-screen flex-col px-4 py-10 lg:px-9">
+			<div className="mt-24 flex w-full absolute inset-0 pointer-events-none flex-1 items-center justify-center opacity-50">
+				<HeroAnimation className="h-full w-auto" />
 			</div>
-			<div className="mt-auto mb-18.75 flex flex-1 items-center justify-between gap-6">
+			<div className="mt-auto flex items-center justify-between gap-6">
 				<Stagger className="z-10 max-w-[663px] space-y-6">
 					<StaggerItem>
 						<h1 className="font-lato text-3xl text-white leading-[1.47] md:text-5xl lg:text-[46px]">
-							<span className="font-black">We Design Products and </span>
-							<span className="font-light">Automate Growth for Startups</span>
+							
+							<span className="font-black">We Design, Build & Automate Systems </span> <br />
+							<span className="font-light">That Scale Your Business On Autopilot.</span>
 						</h1>
 					</StaggerItem>
 					<StaggerItem>
