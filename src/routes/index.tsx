@@ -7,7 +7,6 @@ import { Hero } from "@/components/hero";
 import { HowItWorks } from "@/components/how-it-works";
 import { Reveal } from "@/components/motion/reveal";
 import { Services } from "@/components/services";
-import { TrustedBy } from "@/components/trusted-by";
 import { WeBuildHaya } from "@/components/we-build-haya";
 import { WhatWeBuild } from "@/components/what-we-build";
 
@@ -44,9 +43,6 @@ function App() {
 				<Hero />
 			</div>
 
-			<Reveal>
-				<TrustedBy />
-			</Reveal>
 			<Reveal>
 				<WhatWeBuild />
 			</Reveal>
